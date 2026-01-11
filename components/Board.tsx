@@ -103,13 +103,17 @@ export default function Board() {
 
   return (
     <>
+      <div className="flex items-center justify-start p-6 bg-[#F9F9F9] gap-2">
+        <img src="/kanban.png" alt="Kanban Board" className="w-6 h-6" />
+        <h1 className="text-xl font-semibold">Kanban Board</h1>
+      </div>
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex overflow-x-auto p-6 min-h-screen bg-[#F9F9F9]">
+        <div className="flex overflow-x-auto p-6 pt-0 min-h-screen bg-[#F9F9F9]">
           <SortableContext
             items={columnIds}
             strategy={horizontalListSortingStrategy}

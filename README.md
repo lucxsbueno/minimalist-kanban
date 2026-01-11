@@ -12,7 +12,7 @@
 
 [Features](#-features) • [Technologies](#-technologies) • [Installation](#-installation) • [Usage](#-usage)
 
-![Preview](assets/preview.png)
+![Preview](public/preview.png)
 
 </div>
 
