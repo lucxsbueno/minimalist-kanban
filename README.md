@@ -8,9 +8,9 @@
 ![Zustand](https://img.shields.io/badge/Zustand-4.5.2-443f84?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
-**Um Kanban board minimalista e elegante construído com Next.js, TypeScript e TailwindCSS**
+**A minimalist and elegant Kanban board built with Next.js, TypeScript and TailwindCSS**
 
-[Features](#-features) • [Tecnologias](#-tecnologias) • [Instalação](#-instalação) • [Uso](#-uso)
+[Features](#-features) • [Technologies](#-technologies) • [Installation](#-installation) • [Usage](#-usage)
 
 ![Preview](assets/preview.png)
 
@@ -18,220 +18,220 @@
 
 ---
 
-## 📖 Sobre
+## 📖 About
 
-Minimalist Kanban é uma aplicação web moderna e minimalista para gerenciamento de tarefas usando o método Kanban. Desenvolvido com foco em simplicidade, performance e experiência do usuário, oferece uma interface limpa e intuitiva para organizar suas tarefas em colunas personalizáveis.
+Minimalist Kanban is a modern and minimalist web application for task management using the Kanban method. Developed with a focus on simplicity, performance and user experience, it offers a clean and intuitive interface to organize your tasks in customizable columns.
 
-### ✨ Características Principais
+### ✨ Main Features
 
-- 🎯 **100% focado no Kanban** - Sem barras de navegação, menus laterais ou elementos desnecessários
-- 🎨 **Design Minimalista** - Interface limpa e neutra, focada na usabilidade
-- 🎨 **Colunas Personalizáveis** - Customize cores de fundo e texto de cada coluna
-- 🔄 **Drag & Drop** - Arraste e solte colunas e tarefas com facilidade
-- 💾 **Persistência Local** - Todas as suas tarefas são salvas automaticamente no navegador
-- ⚡ **Performance Otimizada** - Construído com Next.js 14 e React 18
-- 📱 **Responsivo** - Funciona perfeitamente em diferentes tamanhos de tela
-- 🌐 **TypeScript** - Código type-safe e mais seguro
+- 🎯 **100% Kanban-focused** - No navigation bars, side menus or unnecessary elements
+- 🎨 **Minimalist Design** - Clean and neutral interface, focused on usability
+- 🎨 **Customizable Columns** - Customize background and text colors for each column
+- 🔄 **Drag & Drop** - Drag and drop columns and tasks with ease
+- 💾 **Local Persistence** - All your tasks are automatically saved in the browser
+- ⚡ **Optimized Performance** - Built with Next.js 14 and React 18
+- 📱 **Responsive** - Works perfectly on different screen sizes
+- 🌐 **TypeScript** - Type-safe and more secure code
 
 ## 🚀 Features
 
-### Colunas
+### Columns
 
-- ✅ Criar, editar e reordenar colunas
-- ✅ Personalizar cores de fundo e texto
-- ✅ Drag & drop para reordenar
-- ✅ 4 colunas padrão: Backlog, A fazer, Fazendo, Pronto
+- ✅ Create, edit and reorder columns
+- ✅ Customize background and text colors
+- ✅ Drag & drop to reorder
+- ✅ 4 default columns: Backlog, To Do, Doing, Done
 
-### Tarefas
+### Tasks
 
-- ✅ Criar tarefas em qualquer coluna
-- ✅ Editar título e descrição
-- ✅ Marcar como completada
-- ✅ Arrastar entre colunas
-- ✅ Reordenar dentro da mesma coluna
-- ✅ Descrição com ellipsis para textos longos
+- ✅ Create tasks in any column
+- ✅ Edit title and description
+- ✅ Mark as completed
+- ✅ Drag between columns
+- ✅ Reorder within the same column
+- ✅ Description with ellipsis for long texts
 
 ### Interface
 
-- ✅ Design minimalista e limpo
-- ✅ Fonte Montserrat para melhor legibilidade
-- ✅ Hover states sutis
-- ✅ Transições suaves
-- ✅ Modal para edição de tarefas e colunas
+- ✅ Minimalist and clean design
+- ✅ Montserrat font for better readability
+- ✅ Subtle hover states
+- ✅ Smooth transitions
+- ✅ Modal for editing tasks and columns
 
-## 🛠 Tecnologias
+## 🛠 Technologies
 
-Este projeto foi construído com as seguintes tecnologias:
+This project was built with the following technologies:
 
-- **[Next.js 14](https://nextjs.org/)** - Framework React com App Router
-- **[TypeScript](https://www.typescriptlang.org/)** - Tipagem estática
-- **[TailwindCSS](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[Zustand](https://zustand-demo.pmnd.rs/)** - Gerenciamento de estado leve
-- **[@dnd-kit](https://dndkit.com/)** - Biblioteca de drag and drop moderna e acessível
-- **[Lucide React](https://lucide.dev/)** - Ícones SVG otimizados
-- **LocalStorage** - Persistência de dados no navegador
+- **[Next.js 14](https://nextjs.org/)** - React framework with App Router
+- **[TypeScript](https://www.typescriptlang.org/)** - Static typing
+- **[TailwindCSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Zustand](https://zustand-demo.pmnd.rs/)** - Lightweight state management
+- **[@dnd-kit](https://dndkit.com/)** - Modern and accessible drag and drop library
+- **[Lucide React](https://lucide.dev/)** - Optimized SVG icons
+- **LocalStorage** - Data persistence in the browser
 
-## 📦 Instalação
+## 📦 Installation
 
-### Pré-requisitos
+### Prerequisites
 
 - Node.js 18+ 
-- npm, yarn ou pnpm
+- npm, yarn or pnpm
 
-### Passos
+### Steps
 
-1. **Clone o repositório**
+1. **Clone the repository**
 
 ```bash
 git clone https://github.com/seu-usuario/minimalistic-kanban.git
 cd minimalistic-kanban
 ```
 
-2. **Instale as dependências**
+2. **Install dependencies**
 
 ```bash
 npm install
-# ou
+# or
 yarn install
-# ou
+# or
 pnpm install
 ```
 
-3. **Execute o servidor de desenvolvimento**
+3. **Run the development server**
 
 ```bash
 npm run dev
-# ou
+# or
 yarn dev
-# ou
+# or
 pnpm dev
 ```
 
-4. **Acesse no navegador**
+4. **Open in browser**
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🎯 Uso
+## 🎯 Usage
 
-### Criando uma Nova Coluna
+### Creating a New Column
 
-1. Clique no botão **"+ Nova Coluna"** no final da lista de colunas
-2. Preencha o título da coluna
-3. Escolha as cores de fundo e texto (ou use as padrão)
-4. Clique em **"Adicionar"**
+1. Click the **"+ New Column"** button at the end of the column list
+2. Fill in the column title
+3. Choose background and text colors (or use defaults)
+4. Click **"Add"**
 
-### Editando uma Coluna
+### Editing a Column
 
-1. Passe o mouse sobre o header da coluna
-2. Clique no ícone de lápis que aparece
-3. Ou clique diretamente no título da coluna
-4. Edite o nome e/ou cores
-5. Clique em **"Salvar"**
+1. Hover over the column header
+2. Click the pencil icon that appears
+3. Or click directly on the column title
+4. Edit the name and/or colors
+5. Click **"Save"**
 
-### Criando uma Nova Tarefa
+### Creating a New Task
 
-1. Clique no botão **"+ Nova Tarefa"** no final de uma coluna
-2. Digite o título da tarefa (obrigatório)
-3. Adicione uma descrição (opcional)
-4. Clique em **"Adicionar"** ou pressione `Ctrl/Cmd + Enter`
+1. Click the **"+ New Task"** button at the end of a column
+2. Type the task title (required)
+3. Add a description (optional)
+4. Click **"Add"** or press `Ctrl/Cmd + Enter`
 
-### Editando uma Tarefa
+### Editing a Task
 
-1. Clique em qualquer tarefa
-2. Edite o título e/ou descrição no modal
-3. Clique em **"Salvar"** ou pressione `Escape` para cancelar
+1. Click on any task
+2. Edit the title and/or description in the modal
+3. Click **"Save"** or press `Escape` to cancel
 
-### Movendo Tarefas
+### Moving Tasks
 
-- **Entre colunas**: Arraste a tarefa para outra coluna
-- **Dentro da coluna**: Arraste a tarefa para reordenar na mesma coluna
-- **Colunas**: Arraste o header da coluna para reordenar
+- **Between columns**: Drag the task to another column
+- **Within column**: Drag the task to reorder in the same column
+- **Columns**: Drag the column header to reorder
 
-### Completando Tarefas
+### Completing Tasks
 
-1. Clique na checkbox à esquerda da tarefa
-2. A tarefa ficará riscada e semi-transparente quando completada
+1. Click the checkbox to the left of the task
+2. The task will be strikethrough and semi-transparent when completed
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
 ```
 minimalistic-kanban/
 ├── app/
-│   ├── layout.tsx          # Layout raiz com configuração de fonte
-│   ├── page.tsx            # Página principal
-│   └── globals.css         # Estilos globais
+│   ├── layout.tsx          # Root layout with font configuration
+│   ├── page.tsx            # Main page
+│   └── globals.css         # Global styles
 ├── components/
-│   ├── Board.tsx           # Componente principal do board
-│   ├── Column.tsx          # Componente de coluna
-│   ├── Task.tsx            # Componente de tarefa
-│   ├── TaskModal.tsx       # Modal para editar tarefas
-│   ├── ColumnModal.tsx     # Modal para editar colunas
-│   └── AddColumnModal.tsx  # Modal para criar colunas
+│   ├── Board.tsx           # Main board component
+│   ├── Column.tsx          # Column component
+│   ├── Task.tsx            # Task component
+│   ├── TaskModal.tsx       # Modal to edit tasks
+│   ├── ColumnModal.tsx     # Modal to edit columns
+│   └── AddColumnModal.tsx  # Modal to create columns
 ├── store/
-│   └── kanbanStore.ts      # Store Zustand com persistência
+│   └── kanbanStore.ts      # Zustand store with persistence
 ├── types/
-│   └── index.ts            # Definições de tipos TypeScript
-├── public/                 # Arquivos estáticos
+│   └── index.ts            # TypeScript type definitions
+├── public/                 # Static files
 ├── package.json
 ├── tsconfig.json
 ├── tailwind.config.ts
 └── README.md
 ```
 
-## 🎨 Customização
+## 🎨 Customization
 
-### Cores Padrão das Colunas
+### Default Column Colors
 
-As colunas padrão são criadas com:
-- **Cor de fundo**: `#f3f4f6` (cinza claro)
-- **Cor do texto**: `#000000` (preto)
+Default columns are created with:
+- **Background color**: `#f3f4f6` (light gray)
+- **Text color**: `#000000` (black)
 
-Você pode personalizar as cores através do modal de edição de colunas.
+You can customize colors through the column editing modal.
 
-### Fonte
+### Font
 
-O projeto usa a fonte **Montserrat** via Google Fonts. A fonte é configurada globalmente no `app/layout.tsx`.
+The project uses the **Montserrat** font via Google Fonts. The font is configured globally in `app/layout.tsx`.
 
-## 🔧 Scripts Disponíveis
+## 🔧 Available Scripts
 
 ```bash
-# Desenvolvimento
+# Development
 npm run dev
 
-# Build para produção
+# Build for production
 npm run build
 
-# Iniciar servidor de produção
+# Start production server
 npm start
 
 # Linting
 npm run lint
 ```
 
-## 📝 Licença
+## 📝 License
 
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
+This project is licensed under the MIT license. See the `LICENSE` file for more details.
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Contribuições são sempre bem-vindas! Sinta-se à vontade para:
+Contributions are always welcome! Feel free to:
 
-1. Fazer um Fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abrir um Pull Request
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 👤 Autor
+## 👤 Author
 
-Criado com ❤️ para facilitar o gerenciamento de tarefas de forma minimalista e elegante.
+Created with ❤️ to facilitate task management in a minimalist and elegant way.
 
 ---
 
 <div align="center">
 
-⭐ Se este projeto foi útil para você, considere dar uma estrela!
+⭐ If this project was useful to you, consider giving it a star!
 
-Feito com Next.js, TypeScript e muito ☕
+Made with Next.js, TypeScript and lots of ☕
 
 </div>
