@@ -10,6 +10,10 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Minimalist Kanban",
   description: "A minimalist Kanban board",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
