@@ -12,6 +12,8 @@
 
 [Features](#-features) • [Tecnologias](#-tecnologias) • [Instalação](#-instalação) • [Uso](#-uso)
 
+![Preview](assets/preview.png)
+
 </div>
 
 ---
