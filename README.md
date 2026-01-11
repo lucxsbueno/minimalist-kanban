@@ -208,6 +208,133 @@ npm start
 npm run lint
 ```
 
+## 🚀 Production Server with PM2
+
+The project can be run permanently using PM2, allowing access via a custom hostname (e.g., `http://minimalist-kanban`) instead of `localhost:3000`.
+
+### Prerequisites
+
+- PM2 will be installed as a devDependency when running `npm install`
+
+### Initial Setup
+
+1. **Build the project**:
+   ```bash
+   npm run build
+   ```
+
+2. **Configure hostname in /etc/hosts** (requires sudo):
+   ```bash
+   sudo nano /etc/hosts
+   ```
+   
+   Add the line:
+   ```
+   127.0.0.1  minimalist-kanban
+   ```
+   
+   Save the file (Ctrl+O, Enter, Ctrl+X in nano)
+
+3. **Install dependencies** (if not already done):
+   ```bash
+   npm install
+   ```
+
+### Using PM2
+
+**Note:** PM2 commands require `sudo` because the server runs on port 80.
+
+```bash
+# Start server (port 80)
+npm run pm2:start
+
+# Stop server
+npm run pm2:stop
+
+# Restart server
+npm run pm2:restart
+
+# View logs
+npm run pm2:logs
+
+# Remove process from PM2
+npm run pm2:delete
+
+# Save current configuration
+npm run pm2:save
+
+# Configure automatic startup on boot
+npm run pm2:startup
+```
+
+### Complete Initial Setup (First Time)
+
+1. **Build the project**:
+   ```bash
+   npm run build
+   ```
+
+2. **Start server**:
+   ```bash
+   npm run pm2:start
+   ```
+
+3. **Save configuration**:
+   ```bash
+   npm run pm2:save
+   ```
+
+4. **Configure automatic startup on boot**:
+   ```bash
+   npm run pm2:startup
+   ```
+   
+   This command will generate a command that you need to execute. Copy and run the displayed command.
+
+5. **Save again**:
+   ```bash
+   npm run pm2:save
+   ```
+
+### Access the application
+
+After starting with PM2, access: **http://minimalist-kanban** (no port!)
+
+### Useful PM2 Commands
+
+```bash
+# List all PM2 processes
+sudo pm2 list
+
+# Monitor processes
+sudo pm2 monit
+
+# View process information
+sudo pm2 info minimalist-kanban
+```
+
+### Multiple Projects
+
+To run multiple projects simultaneously:
+
+1. **Each project needs a different port**: Edit `ecosystem.config.js` and change `PORT` and `name`
+   - Port 80 requires sudo (recommended for access without port in URL)
+   - Ports above 1024 do not require sudo (but you'll need to use `:PORT` in the URL)
+2. **Add hostname in /etc/hosts**: One line per project:
+   ```
+   127.0.0.1  minimalist-kanban
+   127.0.0.1  another-project
+   ```
+3. **Each project is managed independently**: Use the `pm2:*` scripts from each project
+
+### Notes
+
+- The server runs in production mode (requires build first)
+- Auto-restart on crash
+- PM2 commands require `sudo` when using port 80
+- After configuring `/etc/hosts`, you may need to clear DNS cache in the browser
+- After configuring `pm2 startup`, the server will start automatically after restarting the Mac
+
 ## 📝 License
 
 This project is licensed under the MIT license. See the `LICENSE` file for more details.
