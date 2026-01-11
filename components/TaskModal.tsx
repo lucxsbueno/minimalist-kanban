@@ -12,13 +12,16 @@ interface TaskModalProps {
 
 export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
   const updateTask = useKanbanStore((state) => state.updateTask);
+  const deleteTask = useKanbanStore((state) => state.deleteTask);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
     if (task) {
       setTitle(task.title);
       setDescription(task.description);
+      setShowDeleteConfirm(false);
     }
   }, [task]);
 
@@ -45,6 +48,13 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
   const handleSave = () => {
     if (task) {
       updateTask(task.id, { title, description });
+      onClose();
+    }
+  };
+
+  const handleDelete = () => {
+    if (task) {
+      deleteTask(task.id);
       onClose();
     }
   };
@@ -87,19 +97,46 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
           />
         </div>
 
-        <div className="flex justify-end gap-3">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
-          >
-            Cancelar
-          </button>
-          <button
-            onClick={handleSave}
-            className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800"
-          >
-            Salvar
-          </button>
+        <div className="flex justify-between items-center">
+          <div>
+            {!showDeleteConfirm ? (
+              <button
+                onClick={() => setShowDeleteConfirm(true)}
+                className="px-4 py-2 text-red-600 border border-red-300 rounded-md hover:bg-red-50"
+              >
+                Excluir
+              </button>
+            ) : (
+              <div className="flex gap-2">
+                <button
+                  onClick={handleDelete}
+                  className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                >
+                  Confirmar exclusão
+                </button>
+                <button
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
+                >
+                  Cancelar
+                </button>
+              </div>
+            )}
+          </div>
+          <div className="flex gap-3">
+            <button
+              onClick={onClose}
+              className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
+            >
+              Cancelar
+            </button>
+            <button
+              onClick={handleSave}
+              className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800"
+            >
+              Salvar
+            </button>
+          </div>
         </div>
       </div>
     </div>

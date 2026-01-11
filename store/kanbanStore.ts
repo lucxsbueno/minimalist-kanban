@@ -4,32 +4,43 @@ import type { KanbanStore, Column, Task } from "@/types";
 
 const STORAGE_KEY = "kanban-board-state";
 
-const defaultColumns: Column[] = [
-  {
-    id: "backlog",
-    title: "Backlog",
-    backgroundColor: "#f3f4f6",
-    textColor: "#000000",
-  },
-  {
-    id: "a-fazer",
-    title: "A fazer",
-    backgroundColor: "#f3f4f6",
-    textColor: "#000000",
-  },
-  {
-    id: "fazendo",
-    title: "Fazendo",
-    backgroundColor: "#f3f4f6",
-    textColor: "#000000",
-  },
-  {
-    id: "pronto",
-    title: "Pronto",
-    backgroundColor: "#f3f4f6",
-    textColor: "#000000",
-  },
-];
+const getDefaultColumns = (): Column[] => {
+  const now = Date.now();
+  return [
+    {
+      id: "backlog",
+      title: "Backlog",
+      backgroundColor: "#f3f4f6",
+      textColor: "#000000",
+      createdAt: now,
+      updatedAt: now,
+    },
+    {
+      id: "a-fazer",
+      title: "A fazer",
+      backgroundColor: "#f3f4f6",
+      textColor: "#000000",
+      createdAt: now + 1,
+      updatedAt: now + 1,
+    },
+    {
+      id: "fazendo",
+      title: "Fazendo",
+      backgroundColor: "#f3f4f6",
+      textColor: "#000000",
+      createdAt: now + 2,
+      updatedAt: now + 2,
+    },
+    {
+      id: "pronto",
+      title: "Pronto",
+      backgroundColor: "#f3f4f6",
+      textColor: "#000000",
+      createdAt: now + 3,
+      updatedAt: now + 3,
+    },
+  ];
+};
 
 const generateId = (): string => {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
@@ -44,14 +55,17 @@ export const useKanbanStore = create<KanbanStore>()(
       initializeStore: () => {
         const state = get();
         if (state.columns.length === 0) {
-          set({ columns: defaultColumns });
+          set({ columns: getDefaultColumns() });
         }
       },
 
       addColumn: (column) => {
+        const now = Date.now();
         const newColumn: Column = {
           ...column,
           id: generateId(),
+          createdAt: now,
+          updatedAt: now,
         };
         set((state) => ({
           columns: [...state.columns, newColumn],
@@ -61,7 +75,7 @@ export const useKanbanStore = create<KanbanStore>()(
       updateColumn: (id, updates) => {
         set((state) => ({
           columns: state.columns.map((col) =>
-            col.id === id ? { ...col, ...updates } : col
+            col.id === id ? { ...col, ...updates, updatedAt: Date.now() } : col
           ),
         }));
       },
@@ -89,9 +103,12 @@ export const useKanbanStore = create<KanbanStore>()(
       },
 
       addTask: (task) => {
+        const now = Date.now();
         const newTask: Task = {
           ...task,
           id: generateId(),
+          createdAt: now,
+          updatedAt: now,
         };
         set((state) => ({
           tasks: [...state.tasks, newTask],
@@ -101,7 +118,7 @@ export const useKanbanStore = create<KanbanStore>()(
       updateTask: (id, updates) => {
         set((state) => ({
           tasks: state.tasks.map((task) =>
-            task.id === id ? { ...task, ...updates } : task
+            task.id === id ? { ...task, ...updates, updatedAt: Date.now() } : task
           ),
         }));
       },
@@ -135,7 +152,7 @@ export const useKanbanStore = create<KanbanStore>()(
             );
 
             const overIndex = newColumnTasks.findIndex((t) => t.id === overId);
-            const updatedTask = { ...activeTask, columnId: targetColumnId };
+            const updatedTask = { ...activeTask, columnId: targetColumnId, updatedAt: Date.now() };
             newColumnTasks.splice(overIndex >= 0 ? overIndex : newColumnTasks.length, 0, updatedTask);
 
             return {
@@ -167,7 +184,7 @@ export const useKanbanStore = create<KanbanStore>()(
 
           return {
             tasks: state.tasks.map((t) =>
-              t.id === taskId ? { ...t, columnId: newColumnId } : t
+              t.id === taskId ? { ...t, columnId: newColumnId, updatedAt: Date.now() } : t
             ),
           };
         });
