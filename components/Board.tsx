@@ -109,7 +109,7 @@ export default function Board() {
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex overflow-x-auto p-6 min-h-screen bg-gray-50">
+        <div className="flex overflow-x-auto p-6 min-h-screen bg-[#F9F9F9]">
           <SortableContext
             items={columnIds}
             strategy={horizontalListSortingStrategy}
@@ -128,7 +128,23 @@ export default function Board() {
               );
             })}
           </SortableContext>
-          <div className="flex-shrink-0 w-80 mr-4">
+          <div
+            className="rounded-t-md h-10 mb-3 flex flex-col items-center justify-center relative group bg-[#f5f5f5] flex-shrink-0 w-80"
+          >
+            <div className="flex items-center justify-between gap-2">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleAddColumnClick();
+                }}
+                onPointerDown={(e) => e.stopPropagation()}
+                className="w-full text-sm text-center font-medium text-zinc-950 hover:text-zinc-700 transition-colors">
+                + New column
+              </button>
+            </div>
+          </div>
+          {/* <div className="flex-shrink-0 w-80 mr-4">
             <button
               type="button"
               onClick={(e) => {
@@ -136,11 +152,10 @@ export default function Board() {
                 handleAddColumnClick();
               }}
               onPointerDown={(e) => e.stopPropagation()}
-              className="w-full border-2 border-dashed border-gray-300 rounded-t-md text-gray-500 hover:text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-colors px-4 py-[calc(0.75rem-2px)] mb-3 text-left"
-            >
-              <span className="font-semibold text-lg">+ Nova Coluna</span>
+              className="text-sm font-medium text-zinc-950 hover:text-zinc-700 transition-colors">
+              + New column
             </button>
-          </div>
+          </div> */}
         </div>
         <DragOverlay>
           {activeTask ? <Task task={activeTask} onEdit={handleTaskEdit} /> : null}

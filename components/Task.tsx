@@ -39,7 +39,7 @@ export default function Task({ task, onEdit }: TaskProps) {
     updateTask(task.id, { completed: !task.completed });
   };
 
-  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
+  const handleCheckboxClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
 
@@ -47,37 +47,81 @@ export default function Task({ task, onEdit }: TaskProps) {
     onEdit(task);
   };
 
+  const formatDate = (timestamp: number): string => {
+    const date = new Date(timestamp);
+    return date.toLocaleString("en-US", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  const displayDate = task.updatedAt > task.createdAt
+    ? task.updatedAt
+    : task.createdAt;
+
   return (
     <div
       ref={setNodeRef}
       style={style}
-      className={`bg-white border border-gray-200 rounded-md p-3 mb-2 cursor-pointer hover:border-gray-300 transition-colors ${task.completed ? "opacity-60" : ""
+      className={`text-xs bg-white shadow-sm hover:shadow-md rounded-md p-3 mb-2 cursor-pointer hover:border-gray-300 transition-colors ${task.completed ? "opacity-60" : ""
         }`}
       onClick={handleClick}
     >
       <div className="flex items-start gap-3">
-        <input
-          type="checkbox"
-          checked={task.completed}
-          onChange={handleToggleComplete}
+        <label
+          className="relative flex items-center justify-center cursor-pointer"
           onClick={handleCheckboxClick}
-          className="mt-1 cursor-pointer"
-        />
+        >
+          <input
+            type="checkbox"
+            checked={task.completed}
+            onChange={handleToggleComplete}
+            className="sr-only"
+          />
+          <div
+            className={`w-4 h-4 mt-[2px] rounded-full border transition-all duration-200 flex items-center justify-center ${task.completed
+              ? "bg-purple-600 border-purple-600"
+              : "bg-white border-zinc-200 hover:border-purple-400"
+              }`}
+          >
+            {task.completed && (
+              <svg
+                className="w-3 h-3 text-white"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2.5"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M5 13l4 4L19 7"></path>
+              </svg>
+            )}
+          </div>
+        </label>
         <div className="flex-1 min-w-0" {...attributes} {...listeners}>
           <div
             className={`font-medium mb-1 ${task.completed ? "line-through" : ""
               }`}
           >
             {task.code && (
-              <span className="text-gray-500 font-normal mr-2">{task.code}</span>
+              <span className="mr-1 text-xs">{task.code}</span>
             )}
             {task.title}
           </div>
-          <div
-            className={`text-sm text-gray-600 ${task.completed ? "line-through" : ""
-              } truncate`}
-          >
-            {task.description || "Sem descrição"}
+          {task.description && (
+            <div
+              className={`text-xs text-zinc-500 ${task.completed ? "line-through" : ""
+                } truncate`}
+            >
+              {task.description}
+            </div>
+          )}
+          <div className="text-xs text-zinc-400 mt-1">
+            {formatDate(displayDate)}
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ const getDefaultColumns = (): Column[] => {
     {
       id: "backlog",
       title: "Backlog",
-      backgroundColor: "#f3f4f6",
+      backgroundColor: "#f5f5f5",
       textColor: "#000000",
       createdAt: now,
       updatedAt: now,
@@ -18,7 +18,7 @@ const getDefaultColumns = (): Column[] => {
     {
       id: "a-fazer",
       title: "A fazer",
-      backgroundColor: "#f3f4f6",
+      backgroundColor: "#f5f5f5",
       textColor: "#000000",
       createdAt: now + 1,
       updatedAt: now + 1,
@@ -26,7 +26,7 @@ const getDefaultColumns = (): Column[] => {
     {
       id: "fazendo",
       title: "Fazendo",
-      backgroundColor: "#f3f4f6",
+      backgroundColor: "#f5f5f5",
       textColor: "#000000",
       createdAt: now + 2,
       updatedAt: now + 2,
@@ -34,7 +34,7 @@ const getDefaultColumns = (): Column[] => {
     {
       id: "pronto",
       title: "Pronto",
-      backgroundColor: "#f3f4f6",
+      backgroundColor: "#f5f5f5",
       textColor: "#000000",
       createdAt: now + 3,
       updatedAt: now + 3,

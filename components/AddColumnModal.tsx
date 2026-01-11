@@ -68,22 +68,22 @@ export default function AddColumnModal({ isOpen, onClose }: AddColumnModalProps)
         className="bg-white rounded-lg w-full max-w-md p-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-xl font-semibold mb-4">Nova Coluna</h2>
+        <h2 className="text-xl font-semibold mb-4">New Column</h2>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Título</label>
+          <label className="block text-sm font-medium mb-2">Title</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400"
-            placeholder="Nome da coluna"
+            placeholder="Column name"
             autoFocus
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Cor de Fundo</label>
+          <label className="block text-sm font-medium mb-2">Background Color</label>
           <div className="flex items-center gap-3">
             <input
               type="color"
@@ -102,7 +102,7 @@ export default function AddColumnModal({ isOpen, onClose }: AddColumnModalProps)
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium mb-2">Cor do Texto</label>
+          <label className="block text-sm font-medium mb-2">Text Color</label>
           <div className="flex items-center gap-3">
             <input
               type="color"
@@ -125,14 +125,14 @@ export default function AddColumnModal({ isOpen, onClose }: AddColumnModalProps)
             onClick={onClose}
             className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
           >
-            Cancelar
+            Cancel
           </button>
           <button
             onClick={handleSave}
             disabled={!title.trim()}
             className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Adicionar
+            Add
           </button>
         </div>
       </div>

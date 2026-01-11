@@ -74,11 +74,11 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
         className="bg-white rounded-lg w-full max-w-md p-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-xl font-semibold mb-4">Editar Tarefa</h2>
+        <h2 className="text-xl font-semibold mb-4">Edit Task</h2>
 
         {task.code && (
           <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">Código</label>
+            <label className="block text-sm font-medium mb-2">Code</label>
             <input
               type="text"
               value={task.code}
@@ -89,7 +89,7 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
         )}
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Título</label>
+          <label className="block text-sm font-medium mb-2">Title</label>
           <input
             type="text"
             value={title}
@@ -100,7 +100,7 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium mb-2">Descrição</label>
+          <label className="block text-sm font-medium mb-2">Description</label>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -116,7 +116,7 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
                 onClick={() => setShowDeleteConfirm(true)}
                 className="px-4 py-2 text-red-600 border border-red-300 rounded-md hover:bg-red-50"
               >
-                Excluir
+                Delete
               </button>
             ) : (
               <div className="flex gap-2">
@@ -124,13 +124,13 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
                   onClick={handleDelete}
                   className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
                 >
-                  Confirmar exclusão
+                  Confirm deletion
                 </button>
                 <button
                   onClick={() => setShowDeleteConfirm(false)}
                   className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
                 >
-                  Cancelar
+                  Cancel
                 </button>
               </div>
             )}
@@ -140,13 +140,13 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
               onClick={onClose}
               className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
             >
-              Cancelar
+              Cancel
             </button>
             <button
               onClick={handleSave}
               className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800"
             >
-              Salvar
+              Save
             </button>
           </div>
         </div>

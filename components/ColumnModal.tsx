@@ -66,10 +66,10 @@ export default function ColumnModal({ column, isOpen, onClose }: ColumnModalProp
         className="bg-white rounded-lg w-full max-w-md p-6 shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-xl font-semibold mb-4">Editar Coluna</h2>
+        <h2 className="text-xl font-semibold mb-4">Edit Column</h2>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Título</label>
+          <label className="block text-sm font-medium mb-2">Title</label>
           <input
             type="text"
             value={title}
@@ -80,7 +80,7 @@ export default function ColumnModal({ column, isOpen, onClose }: ColumnModalProp
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Cor de Fundo</label>
+          <label className="block text-sm font-medium mb-2">Background Color</label>
           <div className="flex items-center gap-3">
             <input
               type="color"
@@ -99,7 +99,7 @@ export default function ColumnModal({ column, isOpen, onClose }: ColumnModalProp
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium mb-2">Cor do Texto</label>
+          <label className="block text-sm font-medium mb-2">Text Color</label>
           <div className="flex items-center gap-3">
             <input
               type="color"
@@ -122,13 +122,13 @@ export default function ColumnModal({ column, isOpen, onClose }: ColumnModalProp
             onClick={onClose}
             className="px-4 py-2 text-gray-700 border border-gray-300 rounded-md hover:bg-gray-50"
           >
-            Cancelar
+            Cancel
           </button>
           <button
             onClick={handleSave}
             className="px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-800"
           >
-            Salvar
+            Save
           </button>
         </div>
       </div>
