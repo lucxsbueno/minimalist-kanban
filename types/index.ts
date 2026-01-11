@@ -1,5 +1,6 @@
 export interface Task {
   id: string;
+  code: string;
   title: string;
   description: string;
   completed: boolean;
@@ -25,7 +26,7 @@ export interface KanbanStore {
   updateColumn: (id: string, updates: Partial<Omit<Column, "id" | "createdAt" | "updatedAt">>) => void;
   deleteColumn: (id: string) => void;
   reorderColumns: (activeId: string, overId: string) => void;
-  addTask: (task: Omit<Task, "id" | "createdAt" | "updatedAt">) => void;
+  addTask: (task: Omit<Task, "id" | "code" | "createdAt" | "updatedAt">) => void;
   updateTask: (id: string, updates: Partial<Omit<Task, "id" | "createdAt" | "updatedAt">>) => void;
   deleteTask: (id: string) => void;
   reorderTasks: (activeId: string, overId: string, newColumnId?: string) => void;

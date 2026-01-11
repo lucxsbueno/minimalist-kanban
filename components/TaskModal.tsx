@@ -76,6 +76,18 @@ export default function TaskModal({ task, isOpen, onClose }: TaskModalProps) {
       >
         <h2 className="text-xl font-semibold mb-4">Editar Tarefa</h2>
 
+        {task.code && (
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">Código</label>
+            <input
+              type="text"
+              value={task.code}
+              disabled
+              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-100 text-gray-600 cursor-not-allowed"
+            />
+          </div>
+        )}
+
         <div className="mb-4">
           <label className="block text-sm font-medium mb-2">Título</label>
           <input

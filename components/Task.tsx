@@ -34,9 +34,13 @@ export default function Task({ task, onEdit }: TaskProps) {
     opacity: isDragging ? 0.5 : 1,
   };
 
-  const handleToggleComplete = (e: React.MouseEvent) => {
+  const handleToggleComplete = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.stopPropagation();
     updateTask(task.id, { completed: !task.completed });
+  };
+
+  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    e.stopPropagation();
   };
 
   const handleClick = () => {
@@ -47,9 +51,8 @@ export default function Task({ task, onEdit }: TaskProps) {
     <div
       ref={setNodeRef}
       style={style}
-      className={`bg-white border border-gray-200 rounded-md p-3 mb-2 cursor-pointer hover:border-gray-300 transition-colors ${
-        task.completed ? "opacity-60" : ""
-      }`}
+      className={`bg-white border border-gray-200 rounded-md p-3 mb-2 cursor-pointer hover:border-gray-300 transition-colors ${task.completed ? "opacity-60" : ""
+        }`}
       onClick={handleClick}
     >
       <div className="flex items-start gap-3">
@@ -57,21 +60,22 @@ export default function Task({ task, onEdit }: TaskProps) {
           type="checkbox"
           checked={task.completed}
           onChange={handleToggleComplete}
-          onClick={handleToggleComplete}
+          onClick={handleCheckboxClick}
           className="mt-1 cursor-pointer"
         />
         <div className="flex-1 min-w-0" {...attributes} {...listeners}>
           <div
-            className={`font-medium mb-1 ${
-              task.completed ? "line-through" : ""
-            }`}
+            className={`font-medium mb-1 ${task.completed ? "line-through" : ""
+              }`}
           >
+            {task.code && (
+              <span className="text-gray-500 font-normal mr-2">{task.code}</span>
+            )}
             {task.title}
           </div>
           <div
-            className={`text-sm text-gray-600 ${
-              task.completed ? "line-through" : ""
-            } truncate`}
+            className={`text-sm text-gray-600 ${task.completed ? "line-through" : ""
+              } truncate`}
           >
             {task.description || "Sem descrição"}
           </div>

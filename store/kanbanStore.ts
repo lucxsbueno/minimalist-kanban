@@ -46,6 +46,19 @@ const generateId = (): string => {
   return `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 };
 
+const generateTaskCode = (existingTasks: Task[]): string => {
+  const maxCode = existingTasks.reduce((max, task) => {
+    const match = task.code?.match(/^TASK-(\d+)$/);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      return Math.max(max, num);
+    }
+    return max;
+  }, 0);
+  const nextNumber = maxCode + 1;
+  return `TASK-${nextNumber.toString().padStart(5, "0")}`;
+};
+
 export const useKanbanStore = create<KanbanStore>()(
   persist(
     (set, get) => ({
@@ -56,6 +69,30 @@ export const useKanbanStore = create<KanbanStore>()(
         const state = get();
         if (state.columns.length === 0) {
           set({ columns: getDefaultColumns() });
+        }
+        // Migrar tasks existentes sem código
+        const tasksWithoutCode = state.tasks.filter((task) => !task.code);
+        if (tasksWithoutCode.length > 0) {
+          let currentMax = state.tasks.reduce((max, task) => {
+            const match = task.code?.match(/^TASK-(\d+)$/);
+            if (match) {
+              const num = parseInt(match[1], 10);
+              return Math.max(max, num);
+            }
+            return max;
+          }, 0);
+
+          const tasksWithCode = state.tasks.map((task) => {
+            if (!task.code) {
+              currentMax += 1;
+              return {
+                ...task,
+                code: `TASK-${currentMax.toString().padStart(5, "0")}`,
+              };
+            }
+            return task;
+          });
+          set({ tasks: tasksWithCode });
         }
       },
 
@@ -104,14 +141,16 @@ export const useKanbanStore = create<KanbanStore>()(
 
       addTask: (task) => {
         const now = Date.now();
+        const state = get();
         const newTask: Task = {
           ...task,
           id: generateId(),
+          code: generateTaskCode(state.tasks),
           createdAt: now,
           updatedAt: now,
         };
-        set((state) => ({
-          tasks: [...state.tasks, newTask],
+        set((currentState) => ({
+          tasks: [...currentState.tasks, newTask],
         }));
       },
 
